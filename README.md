@@ -30,13 +30,31 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Explain how to build stateful class components.
 
+You will need to declare your class and extend the React.Component, then you will set up the constructor()/ suuper(), and add the state. Then you will call render() before the return.
+
 2. Describe the different phases of the component lifecycle.
+
+Mounting Phase: This is the phase when the component is being built out from the ground up. Whatever initial data you want access to will be defined on the constructor of this phase.
+
+Updating Phase: You update the state.
+
+Un-mounting Phase: unmounting phase includes removing the component from the screen.
 
 3. Demonstrate an understanding of class component lifecycle methods.
 
-4. Define stateful logic.
+constructor: For initialize the state and bind methods. Call super() to defined the props.
 
-5. Describe how to test a React component with React Testing Library.
+render: render the this.props, or this.state. And it returns the same result each time it’s invoked, and it does not directly interact with the browser.
+
+componentDidMount: Where you fetch the data from a remote endpoint and setState() to trigger an extra redering before the browser updtates the screen.
+
+componentDidUpdate: invoked immediately after updating occurs. This method is not called for the initial render. This is also a good place to do network requests as long as you compare the current props to previous props (e.g. a network request may not be necessary if the props have not changed).
+
+componentWillUnmount: is invoked immediately before a component is unmounted and destroyed. Perform any necessary cleanup in this method, such as invalidating timers, canceling network requests, or cleaning up any subscriptions that were created in componentDidMount().
+
+4. Define stateful logic. : Stateful logic is logic that is built into a component. It can be a function that handles a click event or maybe a function that sets toggle state, or even a function that formats data before it gets displayed. Usually, this kind of logic deals with state in the component. Thus the moniker “stateful logic.”
+
+5. Describe how to test a React component with React Testing Library.: We have to arrange, act, assert. First, we “arrange” our test by setting up our code such that it can be tested. Then, we “act” - calling a method or function that returns a result of interest to our test. Finally, with that return we “assert” if our expected return matched the actual return.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
